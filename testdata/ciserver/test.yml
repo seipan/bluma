@@ -1,0 +1,73 @@
+openapi: 3.0.0
+info:
+  title: Health Check API
+  version: 1.0.0
+paths:
+  /api/v1/health1:
+    get:
+      summary: Health check for service 1
+      responses:
+        '200':
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  message:
+                    type: string
+                    example: "Service 1 is healthy"
+  /api/v1/health2:
+    get:
+      summary: Health check for service 2
+      responses:
+        '200':
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  message:
+                    type: string
+                    example: "Service 2 is healthy"
+  /api/v1/health3:
+    get:
+      summary: Health check for service 3
+      responses:
+        '200':
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  message:
+                    type: string
+                    example: "Service 3 is healthy"
+  /api/v1/health4:
+    get:
+      summary: Health check for service 4
+      responses:
+        '200':
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  message:
+                    type: string
+                    example: "Service 4 is healthy"

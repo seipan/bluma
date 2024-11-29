@@ -1,0 +1,30 @@
+name: E2E Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+    strategy:
+      matrix:
+        go-version: ['1.20','1.21']
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: set up Go 1.x
+      uses: actions/setup-go@v5
+      with:
+        go-version: ${{ matrix.go-version }}
+
+    - name: Setup Server
+      run: cd testdata/ciserver && go run main.go &
+
+    - name: Run E2E Tests
+      run: go run main.go --path=testdata/ciserver/test.yml --base=http://localhost:8080
+
+    
